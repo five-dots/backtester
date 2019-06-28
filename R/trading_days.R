@@ -1,24 +1,27 @@
-#' Get all trading days
+#' Get all trading days by SPY and IBM
 #'
-#' @param start_date Start date by "yyyy-mm-dd" format
-#' @param end_date End date by "yyyy-mm-dd" format
+#' @param start_date Character of Start date by "yyyy-mm-dd" format
+#' @param end_date Character of End date by "yyyy-mm-dd" format
 #'
 #' @return Date vector
 #' @export
 get_trading_days <- function(start_date, end_date) {
 
-  first_date <- lubridate::ymd("1996-01-02")
+  first_date <- lubridate::ymd("1993-01-29")
+  start_date <- lubridate::ymd(start_date)
+  end_date   <- lubridate::ymd(end_date)
 
-  if (lubridate::ymd(start_date) < first_date)
-    stop("Start date must be greater than or equal to 1996-01-02")
+  if (start_date < first_date)
+    stop("Start date must be greater than or equal to first_date")
 
-  if (lubridate::ymd(end_date) < lubridate::ymd(start_date))
+  if (end_date < start_date)
     stop("End date must be greater than or equal to start date.")
 
-  ibm <- MarketData::get_iqfeed_daily("IBM", start_date, end_date)
-  spy <- MarketData::get_iqfeed_daily("SPY", start_date, end_date)
+  spy <- tidyquant::tq_get("SPY", get = "stock.prices", from = start_date)
+  ibm <- tidyquant::tq_get("IBM", get = "stock.prices", from = start_date)
 
-  sort(unique(c(ibm$date, spy$date)))
+  tdays <- sort(unique(c(spy$date, ibm$date)))
+  tdays[tdays <= end_date]
 }
 
 #' Get previous trading date of specified date
