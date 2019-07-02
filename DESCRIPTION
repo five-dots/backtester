@@ -28,4 +28,5 @@ Imports:
     rlang,
     rutils,
     tibble,
-    timetk
+    timetk,
+    tidyquant
