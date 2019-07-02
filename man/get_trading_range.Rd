@@ -7,9 +7,9 @@
 get_trading_range(start_date, end_date, unit, lookback = Inf)
 }
 \arguments{
-\item{start_date}{Start date by "yyyy-mm-dd" format}
+\item{start_date}{Date or character of start date by "yyyy-mm-dd" format}
 
-\item{end_date}{End date by "yyyy-mm-dd" format}
+\item{end_date}{Date or character of end date by "yyyy-mm-dd" format}
 
 \item{unit}{Floor date unit like "day", "week" or "month"}
 

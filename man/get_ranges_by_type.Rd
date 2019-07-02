@@ -4,16 +4,16 @@
 \alias{get_ranges_by_type}
 \title{Get trading range by type}
 \usage{
-get_ranges_by_type(type, start_date, end_date, expand_start_period = 10)
+get_ranges_by_type(type, start_date, end_date, expand_min_period = 10)
 }
 \arguments{
 \item{type}{Range type like "ExpandingDaily", "Rolling3mDaily" etc.}
 
-\item{start_date}{Start date by "yyyy-mm-dd" format}
+\item{start_date}{Date or character of start date by "yyyy-mm-dd" format}
 
-\item{end_date}{End date by "yyyy-mm-dd" format}
+\item{end_date}{Date or character of end date by "yyyy-mm-dd" format}
 
-\item{expand_start_period}{Minimum period for expading type}
+\item{expand_min_period}{Minimum period for expading type}
 }
 \value{
 data.frame of start and end date

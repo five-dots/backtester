@@ -4,10 +4,10 @@
 \alias{get_previous_trading_day}
 \title{Get previous trading date of specified date}
 \usage{
-get_previous_trading_day(date)
+get_previous_trading_day(end_date)
 }
 \arguments{
-\item{date}{Date}
+\item{end_date}{Date or character of end date by "yyyy-mm-dd" format}
 }
 \value{
 date
