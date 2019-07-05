@@ -1,27 +1,30 @@
-#' Get all trading days by SPY and IBM
+#' Get all trading days by IBM
 #'
 #' @param start_date Date or character of start date by "yyyy-mm-dd" format
 #' @param end_date Date or character of end date by "yyyy-mm-dd" format
 #'
 #' @return Date vector
 #' @export
-get_trading_days <- function(start_date = "1993-01-29", end_date = Sys.Date()) {
+get_trading_days <- function(start_date = "1962-01-02", end_date = Sys.Date()) {
   ## Check if the args are coercible to Date
   start_date <- lubridate::ymd(start_date)
   end_date   <- lubridate::ymd(end_date)
 
-  ## Check if the start date does not exceed the SPY's first date
-  first_date <- as.Date("1993-01-29")
+  ## Check if the start date does not exceed the IBM's first date
+  first_date <- as.Date("1962-01-02")
   if (start_date < first_date)
-    stop("Start date must be greater than or equal to 1993-01-29.")
+    stop("Start date must be greater than or equal to 1962-01-02.")
 
   if (end_date < start_date)
     stop("End date must be greater than or equal to start date.")
 
-  spy <- tidyquant::tq_get("SPY", get = "stock.prices", from = start_date)
+  ## SPY starts from 1993-01-29
+  ## spy <- tidyquant::tq_get("SPY", get = "stock.prices", from = start_date)
+  ## IBM starts from 1962-01-02
   ibm <- tidyquant::tq_get("IBM", get = "stock.prices", from = start_date)
 
-  tdays <- sort(unique(c(spy$date, ibm$date)))
+  ## tdays <- sort(unique(c(spy$date, ibm$date)))
+  tdays <- sort(ibm$date)
   tdays[tdays <= end_date]
 }
 

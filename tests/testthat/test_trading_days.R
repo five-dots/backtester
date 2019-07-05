@@ -14,7 +14,7 @@ test_that("get_trading_days() returns correct data.", {
   expect_equal(tail(test_data, 1), as.Date("2018-12-31"))
 
   ## Error check
-  expect_error(get_trading_days("1993-01-28", Sys.Date()))
+  expect_error(get_trading_days("1962-01-01", Sys.Date()))
   expect_error(get_trading_days("2018-01-02", "2018-01-01"))
   expect_error(get_trading_days(NULL, NULL))
   expect_error(get_trading_days(NA, NA))
@@ -38,7 +38,7 @@ test_that("get_previous_trading_day() returns correct data.", {
   ## Error check
   expect_error(get_previous_trading_day(NULL))
   expect_error(get_previous_trading_day(NA))
-  expect_error(get_previous_trading_day("1993-01-28"))
+  expect_error(get_previous_trading_day("1962-01-01"))
 })
 
 test_that("get_trading_range() returns correct data.", {

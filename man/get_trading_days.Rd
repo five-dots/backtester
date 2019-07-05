@@ -2,9 +2,9 @@
 % Please edit documentation in R/trading_days.R
 \name{get_trading_days}
 \alias{get_trading_days}
-\title{Get all trading days by SPY and IBM}
+\title{Get all trading days by IBM}
 \usage{
-get_trading_days(start_date = "1993-01-29", end_date = Sys.Date())
+get_trading_days(start_date = "1962-01-02", end_date = Sys.Date())
 }
 \arguments{
 \item{start_date}{Date or character of start date by "yyyy-mm-dd" format}
@@ -15,5 +15,5 @@ get_trading_days(start_date = "1993-01-29", end_date = Sys.Date())
 Date vector
 }
 \description{
-Get all trading days by SPY and IBM
+Get all trading days by IBM
 }
