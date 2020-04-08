@@ -11,7 +11,7 @@ get_trading_range(start_date, end_date, unit, lookback = Inf)
 
 \item{end_date}{Date or character of end date by "yyyy-mm-dd" format}
 
-\item{unit}{Floor date unit like "day", "week" or "month"}
+\item{unit}{Floor date unit by "day", "week", "month" or "year"}
 
 \item{lookback}{Lookback period by unit size}
 }

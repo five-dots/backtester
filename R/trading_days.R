@@ -50,7 +50,7 @@ get_previous_trading_day <- function(end_date) {
 #' Get trading range
 #'
 #' @inheritParams get_trading_days
-#' @param unit Floor date unit like "day", "week" or "month"
+#' @param unit Floor date unit by "day", "week", "month" or "year"
 #' @param lookback Lookback period by unit size
 #'
 #' @return data.frame of start and end date
